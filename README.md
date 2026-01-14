@@ -28,7 +28,7 @@ The easiest way to use this MCP server is with `uvx`. No manual cloning required
     "pixabay": {
       "command": "uvx",
       "args": [
-        "https://gitee.com/hupengchen/pixabay_mcp.git"
+        "https://github.com/helloHupc/pixabay_mcp.git"
       ],
       "env": {
         "PIXABAY_API_KEY": "your-api-key-here"
@@ -45,7 +45,7 @@ The easiest way to use this MCP server is with `uvx`. No manual cloning required
 For development or to customize the code, clone the repository locally:
 
 ```bash
-git clone https://gitee.com/hupengchen/pixabay_mcp.git
+git clone https://github.com/helloHupc/pixabay_mcp.git
 cd pixabay_mcp
 ```
 
@@ -138,7 +138,7 @@ MIT License
     "pixabay": {
       "command": "uvx",
       "args": [
-        "https://gitee.com/hupengchen/pixabay_mcp.git"
+        "https://github.com/helloHupc/pixabay_mcp.git"
       ],
       "env": {
         "PIXABAY_API_KEY": "你的API密钥"
@@ -155,7 +155,7 @@ MIT License
 用于开发或自定义代码，将仓库克隆到本地：
 
 ```bash
-git clone https://gitee.com/hupengchen/pixabay_mcp.git
+git clone https://github.com/helloHupc/pixabay_mcp.git
 cd
 ```
 
