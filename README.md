@@ -13,54 +13,43 @@ A Model Context Protocol (MCP) server that enables AI assistants to search for i
 - 🖼️ **search_images** - Search for photos, illustrations, and vectors
 - 🎬 **search_videos** - Search for videos and animations
 
-### Prerequisites
-
-Before installing, make sure you have [uv](https://github.com/astral-sh/uv) installed:
-
-```bash
-# On macOS and Linux
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# On Windows
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
 ### Installation
 
-#### Method 1: Clone from Gitee (Recommended for Chinese users)
+#### Method 1: Quick Start with uvx (Recommended)
+
+The easiest way to use this MCP server is with `uvx`. No manual cloning required!
+
+1. Get your [Pixabay API Key](https://pixabay.com/api/docs/)
+2. Add the following to your MCP client configuration:
+
+```json
+{
+  "mcpServers": {
+    "pixabay": {
+      "command": "uvx",
+      "args": [
+        "https://gitee.com/hupengchen/pixabay_mcp.git"
+      ],
+      "env": {
+        "PIXABAY_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
+3. Restart your MCP client and start using!
+
+#### Method 2: Local Development
+
+For development or to customize the code, clone the repository locally:
 
 ```bash
-# Clone the repository
-git clone <your-gitee-repo-url>
+git clone https://gitee.com/hupengchen/pixabay_mcp.git
 cd pixabay_mcp
 ```
 
-Then configure your MCP client using the "Run from Cloned Repository" method below.
-
-#### Method 2: Install from PyPI using uv
-
-```bash
-uv pip install pixabay-mcp
-```
-
-#### Method 3: Install from PyPI using pip
-
-```bash
-pip install pixabay-mcp
-```
-
-### Configuration
-
-#### Get Your API Key
-
-1. Create a free account at [Pixabay](https://pixabay.com/accounts/register/)
-2. Go to [API Documentation](https://pixabay.com/api/docs/) and copy your API key
-
-#### Configure MCP Client
-
-**Option 1: Run from Cloned Repository**
-
-After cloning the repository, add this to your MCP settings (e.g., `mcp_settings.json`):
+Then configure your MCP client:
 
 ```json
 {
@@ -80,80 +69,29 @@ After cloning the repository, add this to your MCP settings (e.g., `mcp_settings
 }
 ```
 
-Make sure to replace `/path/to/pixabay_mcp` with the actual path to the cloned repository.
+Make sure to replace `/path/to/pixabay_mcp` with your actual local path.
 
-**Option 2: Run using uv with --with flag**
+### Get Your API Key
 
-```json
-{
-  "mcpServers": {
-    "pixabay": {
-      "command": "uv",
-      "args": [
-        "run",
-        "--with", "mcp[cli]",
-        "--with", "httpx",
-        "/path/to/pixabay_mcp/src/pixabay_mcp/server.py"
-      ],
-      "env": {
-        "PIXABAY_API_KEY": "your-api-key-here"
-      }
-    }
-  }
-}
-```
-
-**Option 3: Run installed package using uv**
-
-```json
-{
-  "mcpServers": {
-    "pixabay": {
-      "command": "uv",
-      "args": ["run", "--with", "pixabay-mcp", "pixabay-mcp"],
-      "env": {
-        "PIXABAY_API_KEY": "your-api-key-here"
-      }
-    }
-  }
-}
-```
-
-**Option 4: Run installed package using pip**
-
-```json
-{
-  "mcpServers": {
-    "pixabay": {
-      "command": "pixabay-mcp",
-      "env": {
-        "PIXABAY_API_KEY": "your-api-key-here"
-      }
-    }
-  }
-}
-```
+1. Create a free account at [Pixabay](https://pixabay.com/accounts/register/)
+2. Go to [API Documentation](https://pixabay.com/api/docs/) and copy your API key
 
 ### Quick Start
 
-1. **Get the code:**
-   ```bash
-   git clone <your-gitee-repo-url>
-   cd pixabay_mcp
-   ```
+1. **Get your API key from Pixabay**
+2. **Copy** configuration from Method 1 above
+3. **Replace `your-api-key-here`** with your actual API key
+4. **Add to your MCP client settings**
+5. **Restart your MCP client**
+6. **Start searching!**
 
-2. **Get your API key:**
-   - Register at [Pixabay](https://pixabay.com/accounts/register/)
-   - Copy your API key from [API Documentation](https://pixabay.com/api/docs/)
+### Usage Examples
 
-3. **Configure MCP Client:**
-   - Add the configuration from "Option 1" above to your MCP settings
-   - Replace `/path/to/pixabay_mcp` with your actual path
-   - Replace `your-api-key-here` with your Pixabay API key
+Once configured, you can ask your AI assistant:
 
-4. **Start using:**
-   - Restart your AI client or MCP server connection
-   - Ask your AI assistant to search for images or videos
+- "Search for photos of yellow flowers"
+- "Find some nature videos"
+- "Look for vector illustrations of cats"
 
 ### Project Structure
 
@@ -170,14 +108,6 @@ pixabay_mcp/
 └── .gitignore                  # Git ignore rules
 ```
 
-### Usage Examples
-
-Once configured, you can ask your AI assistant:
-
-- "Search for photos of yellow flowers"
-- "Find some nature videos"
-- "Look for vector illustrations of cats"
-
 ### License
 
 MIT License
@@ -193,54 +123,43 @@ MIT License
 - 🖼️ **search_images** - 搜索照片、插画和矢量图
 - 🎬 **search_videos** - 搜索视频和动画
 
-### 前置要求
-
-安装前，请确保已安装 [uv](https://github.com/astral-sh/uv)：
-
-```bash
-# macOS 和 Linux
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Windows
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
 ### 安装
 
-#### 方法 1：从 Gitee 克隆（推荐中国用户使用）
+#### 方法 1：使用 uvx 快速开始（推荐）
 
-```bash
-# 克隆仓库
-git clone <你的gitee仓库地址>
-cd pixabay_mcp
+最简单的使用方式，使用 `uvx` 直接从 Gitee 运行，无需手动克隆！
+
+1. 获取你的 [Pixabay API 密钥](https://pixabay.com/api/docs/)
+2. 在 MCP 客户端配置中添加以下内容：
+
+```json
+{
+  "mcpServers": {
+    "pixabay": {
+      "command": "uvx",
+      "args": [
+        "https://gitee.com/hupengchen/pixabay_mcp.git"
+      ],
+      "env": {
+        "PIXABAY_API_KEY": "你的API密钥"
+      }
+    }
+  }
+}
 ```
 
-然后使用下面的"从克隆仓库运行"方法配置 MCP 客户端。
+3. 重启 MCP 客户端，开始使用！
 
-#### 方法 2：使用 uv 从 PyPI 安装
+#### 方法 2：本地开发调试
 
-```bash
-uv pip install pixabay-mcp
-```
-
-#### 方法 3：使用 pip 从 PyPI 安装
+用于开发或自定义代码，将仓库克隆到本地：
 
 ```bash
-pip install pixabay-mcp
+git clone https://gitee.com/hupengchen/pixabay_mcp.git
+cd
 ```
 
-### 配置
-
-#### 获取 API Key
-
-1. 在 [Pixabay](https://pixabay.com/accounts/register/) 注册免费账号
-2. 访问 [API 文档页面](https://pixabay.com/api/docs/) 复制你的 API key
-
-#### 配置 MCP 客户端
-
-**选项 1：从克隆仓库运行**
-
-克隆仓库后，在 MCP 设置文件（如 `mcp_settings.json`）中添加：
+然后配置 MCP 客户端：
 
 ```json
 {
@@ -260,80 +179,29 @@ pip install pixabay-mcp
 }
 ```
 
-请将 `/path/to/pixabay_mcp` 替换为实际的克隆仓库路径。
+请将 `/path/to/pixabay_mcp` 替换为你的实际本地路径。
 
-**选项 2：使用 uv 的 --with 标志运行**
+### 获取 API 密钥
 
-```json
-{
-  "mcparservers": {
-    "pixabay": {
-      "command": "uv",
-      "args": [
-        "run",
-        "--with", "mcp[cli]",
-        "--with", "httpx",
-        "/path/to/pixabay_mcp/src/pixabay_mcp/server.py"
-      ],
-      "env": {
-        "PIXABAY_API_KEY": "你的API密钥"
-      }
-    }
-  }
-}
-```
-
-**选项 3：使用 uv 运行已安装的包**
-
-```json
-{
-  "mcpServers": {
-    "pixabay": {
-      "command": "uv",
-      "args": ["run", "--with", "pixabay-mcp", "pixabay-mcp"],
-      "env": {
-        "PIXABAY_API_KEY": "你的API密钥"
-      }
-    }
-  }
-}
-```
-
-**选项 4：使用 pip 运行已安装的包**
-
-```json
-{
-  "mcpServers": {
-    "pixabay": {
-      "command": "pixabay-mcp",
-      "env": {
-        "PIXABAY_API_KEY": "你的API密钥"
-      }
-    }
-  }
-}
-```
+1. 在 [Pixabay](https://pixabay.com/accounts/register/) 注册免费账号
+2. 访问 [API 文档页面](https://pixabay.com/api/docs/) 复制你的 API 密钥
 
 ### 快速开始
 
-1. **获取代码：**
-   ```bash
-   git clone <你的gitee仓库地址>
-   cd pixabay_mcp
-   ```
+1. **从 Pixabay 获取你的 API 密钥**
+2. **复制上面方法 1 中的配置**
+3. **将 `你的API密钥`** 替换为你的实际 API 密钥
+4. **添加到你的 MCP 客户端设置**
+5. **重启 MCP 客户端**
+6. **开始搜索！**
 
-2. **获取 API 密钥：**
-   - 在 [Pixabay](https://pixabay.com/accounts/register/) 注册账号
-   - 从 [API 文档页面](https://pixabay.com/api/docs/) 复制你的 API 密钥
+### 使用示例
 
-3. **配置 MCP 客户端：**
-   - 将上面"选项 1"中的配置添加到你的 MCP 设置中
-   - 将 `/path/to/pixabay_mcp` 替换为你的实际路径
-   - 将 `你的API密钥` 替换为你的 Pixabay API 密钥
+配置完成后，你可以这样问 AI 助手：
 
-4. **开始使用：**
-   - 重启你的 AI 客户端或 MCP 服务器连接
-   - 让 AI 助手帮你搜索图片或视频
+- "帮我搜索黄色花朵的图片"
+- "找一些自然风景的视频"
+- "搜索猫咪的矢量插画"
 
 ### 项目结构
 
@@ -350,13 +218,18 @@ pixabay_mcp/
 └── .gitignore                  # Git 忽略规则
 ```
 
-### 使用示例
+### uv 和 uvx 的区别
 
-配置完成后，你可以这样问 AI 助手：
+**uv** - 通用 Python 项目管理工具
+- 用于开发、安装包、运行脚本
+- 需要手动管理虚拟环境
+- 适合本地开发和调试
 
-- "帮我搜索黄色花朵的图片"
-- "找一些自然风景的视频"
-- "搜索猫咪的矢量插画"
+**uvx** - 快速执行工具
+- 直接从 PyPI 或 Git 仓库运行包
+- 自动管理隔离环境
+- 无需手动安装，开箱即用
+- 适合快速部署和分享
 
 ### 许可证
 
