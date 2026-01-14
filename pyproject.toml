@@ -1,0 +1,29 @@
+[project]
+name = "pixabay-mcp"
+version = "0.1.0"
+description = "MCP Server for searching images and videos on Pixabay"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Your Name", email = "your@email.com" }]
+keywords = ["mcp", "pixabay", "images", "ai", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = ["mcp[cli]>=1.0.0", "httpx>=0.27.0"]
+
+[project.scripts]
+pixabay-mcp = "pixabay_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pixabay_mcp"]
